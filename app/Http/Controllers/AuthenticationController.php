@@ -35,7 +35,7 @@ class AuthenticationController extends Controller
         // Simpan data ke session
         Session::put('register', [
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => Hash::make($request->password), // Hash::make()$request->password,
         ]);
 
         return redirect()->route('register.step2');
@@ -92,7 +92,10 @@ class AuthenticationController extends Controller
     {
         $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
+        // Cek apakah password yang dimasukkan cocok dengan hash password di database
+        $user = User::where('email', $credentials['email'])->first();
+        if ($user && Hash::check($credentials['password'], $user->password)) {
+            Auth::login($user);
             return redirect()->intended('home');
         }
 
@@ -100,7 +103,6 @@ class AuthenticationController extends Controller
             'login' => 'Email atau password tidak valid.',
         ])->withInput();
     }
-
 
     public function logout()
     {
