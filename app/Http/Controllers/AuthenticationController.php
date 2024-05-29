@@ -96,7 +96,7 @@ class AuthenticationController extends Controller
         $user = User::where('email', $credentials['email'])->first();
         if ($user && Hash::check($credentials['password'], $user->password)) {
             Auth::login($user);
-            return redirect()->intended('home');
+            return redirect()->intended('dashboard');
         }
 
         return redirect()->back()->withErrors([

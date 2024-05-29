@@ -14,10 +14,15 @@ Route::post('/register/step1', [AuthenticationController::class, 'processRegiste
 Route::get('/register/step2', [AuthenticationController::class, 'showRegisterFormStep2'])->name('register.step2');
 Route::post('/register/step2', [AuthenticationController::class, 'processRegisterFormStep2']);
 
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [WisataController::class, 'index'])->name('dashboard');
+
 Route::get('/jadwal', [JadwalController::class, 'index']);
 
-Route::get('/home', function () {
-    return 'Home Page';
-})->middleware('auth')->name('home');
+    Route::get('/home', function () {
+        return 'Home Page';
+    })->name('home');
+});
+
 
 

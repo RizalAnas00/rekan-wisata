@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('alamat_lengkap');
             $table->text('deskripsi_wisata');
             $table->text('kategori_wisata');
+            $table->string('image_path');
             $table->timestamps();
         });
     }
