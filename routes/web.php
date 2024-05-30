@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\WisataController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/login', [AuthenticationController::class, 'showLoginForm'])->name('login');
