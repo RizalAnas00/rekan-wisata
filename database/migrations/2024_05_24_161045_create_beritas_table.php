@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('penulis');
             $table->date('tanggal_terbit');
             $table->longText('kontent');
+            $table->string('image_path');
             $table->timestamps();
         });
     }

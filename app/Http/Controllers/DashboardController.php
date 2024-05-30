@@ -10,8 +10,8 @@ class DashboardController extends Controller
     public function showDashboard()
     {
         $beritas = Berita::all(); // Mendapatkan semua data berita dari model
-
-        return view('dashboard', compact('beritas')); // Meneruskan data berita ke tampilan dashboard
+        $pengunjungs = Auth::User();
+        return view('dashboard', compact('beritas','pengunjungs')); // Meneruskan data berita ke tampilan dashboard
     }
 }
 
