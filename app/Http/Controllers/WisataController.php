@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Wisata;
 use App\Models\Berita;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class WisataController extends Controller
 {
@@ -12,8 +13,9 @@ class WisataController extends Controller
     {
         $wisatas = Wisata::all();
         $beritas = Berita::all();
+        $pengunjungs = Auth::User();
 
-        return view('dashboard', compact('wisatas', 'beritas'));
+        return view('dashboard', compact('wisatas', 'beritas', 'pengunjungs'));	
     }
 }
 

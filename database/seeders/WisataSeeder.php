@@ -51,5 +51,6 @@ class WisataSeeder extends Seeder
             'kategori_wisata' => 'Danau',
             'image_path' => 'images/C28DCB80-1C03-405F-923D-ABBC42D15A94-1740977994.webp',
         ]);
+
     }
 }
