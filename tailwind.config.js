@@ -5,6 +5,7 @@ export default {
     "./resources/views/login.blade.php",
     "./resources/views/daftar.blade.php",
     "./resources/views/DataDiri.blade.php",
+    "./resources/views/jadwal.blade.php",
     "./resources/**/*.js",
     "./resources/**/*.vue",
   ],

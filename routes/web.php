@@ -19,6 +19,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [WisataController::class, 'index'])->name('dashboard');
 
 Route::get('/jadwal', [JadwalController::class, 'index']);
+Route::get('/tambahJadwal', [JadwalController::class, 'tampilTambahJadwal']);
 
     Route::get('/home', function () {
         return 'Home Page';
