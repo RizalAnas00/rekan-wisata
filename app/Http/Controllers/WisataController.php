@@ -15,9 +15,9 @@ class WisataController extends Controller
     {
         $wisatas = Wisata::all();
         $beritas = Berita::all();
-        $pengunjungs = Auth::user();
+        $users = Auth::user();
 
-        return view('dashboard', compact('wisatas', 'beritas', 'pengunjungs'));
+        return view('dashboard', compact('wisatas', 'beritas', 'users'));
     }
 
     public function showRekomendasi(Request $request)
@@ -41,9 +41,19 @@ class WisataController extends Controller
 
     public function tampilDetail($id)
     {
-        $wisata = Wisata::findOrFail($id);
-        return view('detailWisata', compact('wisata'));
+    $wisata = Wisata::find($id);
+    
+        if ($wisata) {
+            // Menggunakan relasi dari model Wisata untuk mengambil reviews
+            $reviews = $wisata->reviews()->with('user')->get();
+        } else {
+            // Inisialisasi $reviews dengan array kosong jika tidak ada $wisata yang ditemukan
+            $reviews = [];
+        }
+
+        return view('detailWisata', compact('wisata', 'reviews'));
     }
+
 
     public function searchWisata(Request $request)
     {

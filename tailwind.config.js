@@ -3,7 +3,9 @@ export default {
   content: [
     "./resources/views/dashboard.blade.php",
     "./resources/views/rekomendasiWisata.blade.php",
+    "./resources/views/landingpage.blade.php",
     "./resources/views/detailWisata.blade.php",
+    "./resources/views/reviewUser.blade.php",
     "./resources/views/login.blade.php",
     "./resources/views/daftar.blade.php",
     "./resources/views/DataDiri.blade.php",
@@ -13,7 +15,8 @@ export default {
   ],
   theme: {
     extend: {
-      textweight: {
+
+      fontWeight: {
         'semi-bold': '750',
       },
       fontSize: {

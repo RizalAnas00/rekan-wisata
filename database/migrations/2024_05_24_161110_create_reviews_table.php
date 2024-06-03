@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('kontent');
             $table->float('rating');
             $table->foreignId('wisata_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

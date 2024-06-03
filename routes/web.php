@@ -3,7 +3,12 @@
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\WisataController;
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\LandingPageController;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/', [LandingPageController::class, 'index'])->name('landingpage');
 
 Route::get('/login', [AuthenticationController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthenticationController::class, 'login']);
@@ -25,6 +30,8 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/dashboard', [WisataController::class, 'searchWisata']);
     Route::get('/searchWisata', [WisataController::class, 'searchWisata'])->name('search.wisata');
+
+    Route::get('/review', [ReviewController::class, 'index'])->name('review');
 
     Route::get('/home', function () {
         return 'Home Page';
