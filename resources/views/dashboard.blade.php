@@ -42,7 +42,7 @@
                 <div class="overflow-x-auto">
                     <div class="flex p-4 gap-2">
                         @foreach($wisatas as $wisata)
-                            <a href="{{ route('detail.Wisata', $wisata->id) }}" class="w-52 h-72 text-wrap whitespace-nowrap overflow-y-auto flex-shrink-0 bg-amber-50 border rounded-md shadow-md mr-4">
+                            <a href="{{ route('detail.Wisata', $wisata->id) }}" class="w-52 h-72 text-wrap whitespace-nowrap overflow-y-auto flex-shrink-0 bg-amber-50 border rounded-2xl shadow-md mr-4">
                                 @if ($wisata->image_path)
                                     <img src="{{ $wisata->image_path }}" alt="{{ $wisata->nama_wisata }}" class="w-full h-32 object-cover rounded-md mb-2">
                                 @endif
@@ -64,7 +64,7 @@
                 <h2 class="text-xl font-semibold mb-2">Pilihan Pariwisata</h2>
                 <div class="flex-wrap grid-row-2 gap-2 py-3">
                     @foreach($wisatas->unique('kategori_wisata') as $wisata)
-                        <button class="px-4 py-2 bg-[#283618] text-white rounded-md m-1.5">{{ $wisata->kategori_wisata }}</button>
+                        <button class="px-4 py-2 bg-[#283618] text-white rounded-lg m-1.5">{{ $wisata->kategori_wisata }}</button>
                     @endforeach
                 </div>
             </section>
@@ -75,9 +75,9 @@
                 <div class="overflow-x-auto">
                     <div class="flex p-4 gap-2">
                         @foreach($beritas as $berita)
-                            <div class="w-72 h-60 text-wrap overflow-hidden flex-shrink-0 bg-amber-50 border rounded-md shadow-md mr-4">
+                            <div class="w-96 h-60 text-wrap overflow-hidden flex-shrink-0 bg-amber-50 border rounded-2xl shadow-md mr-4">
                                 @if ($berita->image_path)
-                                    <img src="{{ $berita->image_path }}" alt="{{ $berita->nama_wisata }}" class="w-full h-32 object-cover rounded-md mb-2">
+                                    <img src="{{ $berita->image_path }}" alt="{{ $berita->nama_wisata }}" class="w-full h-32 object-cover rounded-b-none mb-2">
                                 @endif
                                 <div class="p-4">
                                     <h3 class="text-lg font-semibold">{{ $berita->judul }}</h3>
