@@ -15,6 +15,13 @@ export default {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        'inner-md-custom': 'inset 0 1px 10px rgba(60, 66, 39, 0.4)', // Warna #3c4227
+      },
+
+      borderRadius:{
+        'large': '28px',
+      },
 
       fontWeight: {
         'semi-bold': '750',

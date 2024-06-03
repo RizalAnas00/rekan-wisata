@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Wisata;
 use App\Models\Berita;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -41,18 +42,17 @@ class WisataController extends Controller
 
     public function tampilDetail($id)
     {
-    $wisata = Wisata::find($id);
-    
-        if ($wisata) {
-            // Menggunakan relasi dari model Wisata untuk mengambil reviews
-            $reviews = $wisata->reviews()->with('user')->get();
-        } else {
-            // Inisialisasi $reviews dengan array kosong jika tidak ada $wisata yang ditemukan
-            $reviews = [];
-        }
+        $wisata = Wisata::find($id);
+        $reviews = Review::where('wisata_id', $id)->get();
 
-        return view('detailWisata', compact('wisata', 'reviews'));
+        // Hitung rata-rata rating
+        $totalRating = $reviews->sum('rating');
+        $jumlahReview = $reviews->count();
+        $ratingTerkini = $jumlahReview > 0 ? $totalRating / $jumlahReview : 0;
+
+        return view('detailWisata', compact('wisata', 'reviews', 'ratingTerkini'));
     }
+
 
 
     public function searchWisata(Request $request)
