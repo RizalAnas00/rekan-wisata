@@ -39,12 +39,40 @@ class WisataController extends Controller
         return view('rekomendasiWisata', compact('wisatas', 'kategoris', 'wilayahs'));
     }
 
-
-
     public function tampilDetail($id)
     {
         $wisata = Wisata::findOrFail($id);
         return view('detailWisata', compact('wisata'));
+    }
+
+    public function searchWisata(Request $request)
+    {
+        $searchTerm = $request->input('search');
+        $selectedWilayah = $request->input('wilayah');
+        $selectedKategori = $request->input('kategori');
+        
+        $query = Wisata::query();
+    
+        if ($searchTerm) {
+            $query->where('nama_wisata', 'LIKE', "%{$searchTerm}%")
+                ->orWhere('kota', 'LIKE', "%{$searchTerm}%")
+                ->orWhere('kategori_wisata', 'LIKE', "%{$searchTerm}%")
+                ->orWhere('alamat_lengkap', 'LIKE', "%{$searchTerm}%");
+        }
+
+        if ($selectedWilayah && $selectedWilayah != 'all') {
+            $query->where('kota', $selectedWilayah);
+        }
+    
+        if ($selectedKategori && $selectedKategori != 'all') {
+            $query->where('kategori_wisata', $selectedKategori);
+        }
+    
+        $wisatas = $query->get();
+        $kategoris = Wisata::select('kategori_wisata')->distinct()->get();
+        $wilayahs = Wisata::select('kota')->distinct()->get();
+    
+        return view('rekomendasiWisata', compact('wisatas', 'kategoris', 'wilayahs'));
     }
 }
 

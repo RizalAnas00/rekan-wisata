@@ -9,6 +9,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const wilayahSelect = document.getElementById('wilayah');
             const kategoriSelect = document.getElementById('kategori');
+            const searchInput = document.getElementById('search');
 
             const form = document.getElementById('filterForm');
 
@@ -18,6 +19,12 @@
 
             kategoriSelect.addEventListener('change', function() {
                 form.submit();
+            });
+
+            searchInput.addEventListener('keyup', function(event) {
+                if (event.key === 'Enter') {
+                    form.submit();
+                }
             });
         });
     </script>
@@ -29,49 +36,54 @@
             <h1 class="text-2xl font-bold">Rekomendasi Wisata</h1>
         </header>
         
-        <form id="filterForm" method="GET" action="{{ route('rekomendasi.Wisata') }}" class="mb-6 flex justify-between items-center">
-
-            <div>
-                <label for="wilayah" class="block mb-4 text-sm font-medium text-gray-700">Wilayah Wisata</label>
-                <select id="wilayah" name="wilayah" class="block w-full p-2 border border-gray-300 rounded-md">
-                    <option value="all">Semua Wilayah</option>
-                    @foreach($wilayahs as $wilayah)
-                        <option value="{{ $wilayah->kota }}" {{ request('wilayah') == $wilayah->kota ? 'selected' : '' }}>{{ $wilayah->kota }}</option>
-                    @endforeach
-                </select>
+        <form id="filterForm" method="GET" action="{{ route('search.wisata') }}" class="mb-6">
+            <div class="mb-4">
+                <label for="search" class="block mb-2 text-sm font-medium text-gray-700">Cari Wisata</label>
+                <input
+                    type="text"
+                    id="search"
+                    name="search"
+                    class="block w-full p-2 border border-gray-300 rounded-md"
+                    placeholder="Search by name, city, or category"
+                    value="{{ request('search') }}"
+                />
             </div>
-
-            <div>
-                <label for="kategori" class="block mb-4 text-sm font-medium text-gray-700">Kategori Wisata</label>
-                <select id="kategori" name="kategori" class="block w-full p-2 border border-gray-300 rounded-md">
-                    <option value="all">Semua Kategori</option>
-                    @foreach($kategoris as $kategori)
-                        <option value="{{ $kategori->kategori_wisata }}" {{ request('kategori') == $kategori->kategori_wisata ? 'selected' : '' }}>{{ $kategori->kategori_wisata }}</option>
-                    @endforeach
-                </select>
+            <div class="flex space-x-4">
+                <div>
+                    <label for="wilayah" class="block mb-2 text-sm font-medium text-gray-700">Wilayah Wisata</label>
+                    <select id="wilayah" name="wilayah" class="block w-full p-2 border border-gray-300 rounded-md">
+                        <option value="all">Semua Wilayah</option>
+                        @foreach($wilayahs as $wilayah)
+                            <option value="{{ $wilayah->kota }}" {{ request('wilayah') == $wilayah->kota ? 'selected' : '' }}>{{ $wilayah->kota }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div>
+                    <label for="kategori" class="block mb-2 text-sm font-medium text-gray-700">Kategori Wisata</label>
+                    <select id="kategori" name="kategori" class="block w-full p-2 border border-gray-300 rounded-md">
+                        <option value="all">Semua Kategori</option>
+                        @foreach($kategoris as $kategori)
+                            <option value="{{ $kategori->kategori_wisata }}" {{ request('kategori') == $kategori->kategori_wisata ? 'selected' : '' }}>{{ $kategori->kategori_wisata }}</option>
+                        @endforeach
+                    </select>
+                </div>
             </div>
-
         </form>
 
         <div class="grid grid-cols-2 gap-4">
-
             @foreach($wisatas as $wisata)
-                <a href="{{ route('detail.Wisata', $wisata->id) }}" class="w-90 h-72 text-wrap whitespace-nowrap overflow-y-auto flex-shrink-0 bg-amber-50 border rounded-md shadow-md mr-4">
-                    
+                <a href="{{ route('detail.Wisata', $wisata->id) }}" class="bg-amber-50 rounded-lg shadow-md overflow-hidden">
                     @if ($wisata->image_path)
-                        <img src="{{ $wisata->image_path }}" alt="{{ $wisata->nama_wisata }}" class="w-full h-32 object-cover rounded-md mb-2">
+                        <img src="{{ $wisata->image_path }}" alt="{{ $wisata->nama_wisata }}" class="w-full h-32 object-cover">
                     @endif
-
-                    <div class="flex justify-between items-center px-4 mb-1">
-                        <h3 class="pr-0.5 text-lg font-[750] text-emerald-950">{{ $wisata->nama_wisata }}</h3>
-                        <h3 class="text-lg font-light text-lime-700">{{ $wisata->rating ?? '4.7' }}/5.0</h3>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">{{ $wisata->nama_wisata }}</h3>
+                        <p class="text-gray-600">{{ $wisata->kategori_wisata }}</p>
+                        <p class="text-gray-600">{{ $wisata->alamat_lengkap }}</p>
+                        <p class="text-gray-600">{{ $wisata->rating ?? '3.5' }}/5.0</p>
                     </div>
-                    <p class="px-4 font-bold text-sm text-green-900">{{ $wisata->kategori_wisata }}</p>
-                    <p class="px-4 text-sm text-gray-600">{{ $wisata->alamat_lengkap }}</p>
-                    <p class="pb-1 px-4 mt-1 mb-2 text-xs">{{ $wisata->deskripsi_wisata }}</p>
                 </a>
             @endforeach
-            
         </div>
     </div>
 </body>

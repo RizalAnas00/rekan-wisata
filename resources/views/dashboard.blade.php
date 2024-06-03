@@ -13,12 +13,17 @@
                 <button src="{{ asset('images/sidebarbtn.png') }}" alt="Sidebar" class="block pr-2"></button>
                 <img src="{{ asset('images/notifIcon.png') }}" alt="Notification" class="p-2 block">
             </div>
-            <input
-                type="text"
-                class="p-2 border border-gray-300 rounded-md text-black"
-                placeholder="Pariwisata, Semarang, Jenis Wisata"
-            />
+            <form method="GET" action="{{ route('search.wisata') }}" class="flex-grow ml-4">
+                <input
+                    type="text"
+                    name="search"
+                    class="p-2 border border-gray-300 rounded-md text-black w-full"
+                    placeholder="Pariwisata, Semarang, Jenis Wisata"
+                    value="{{ request('search') }}"
+                />
+            </form>
         </header>
+        
 
         <main class="flex-1 container mx-auto px-4 py-8">
             

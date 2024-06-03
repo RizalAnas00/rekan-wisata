@@ -23,6 +23,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/jadwal', [JadwalController::class, 'index']);
     Route::get('/tambahJadwal', [JadwalController::class, 'tampilTambahJadwal']);
 
+    Route::post('/dashboard', [WisataController::class, 'searchWisata']);
+    Route::get('/searchWisata', [WisataController::class, 'searchWisata'])->name('search.wisata');
+
     Route::get('/home', function () {
         return 'Home Page';
     })->name('home');
