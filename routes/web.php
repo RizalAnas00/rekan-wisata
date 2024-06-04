@@ -25,8 +25,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/rekomendasiWisata', [WisataController::class, 'showRekomendasi'])->name('rekomendasi.Wisata');
     Route::get('/wisata/{id}', [WisataController::class, 'tampilDetail'])->name('detail.Wisata');
 
-Route::get('/jadwal', [JadwalController::class, 'index']);
-Route::get('/tambahJadwal', [JadwalController::class, 'tampilTambahJadwal']);
+    Route::get('/jadwal', [JadwalController::class, 'index']);
+    Route::get('/tambahJadwal', [JadwalController::class, 'tampilTambahJadwal']);
+
+    Route::post('/dashboard', [WisataController::class, 'searchWisata']);
+    Route::get('/searchWisata', [WisataController::class, 'searchWisata'])->name('search.wisata');
+
+    Route::get('/review', [ReviewController::class, 'index'])->name('review');
 
     Route::get('/home', function () {
         return 'Home Page';
