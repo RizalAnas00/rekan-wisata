@@ -18,8 +18,10 @@ Route::post('/register/step2', [AuthenticationController::class, 'processRegiste
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [WisataController::class, 'index'])->name('dashboard');
 
-Route::get('/jadwal', [JadwalController::class, 'index']);
-Route::get('/tambahJadwal', [JadwalController::class, 'tampilTambahJadwal']);
+Route::get('/jadwal', [JadwalController::class, 'index'])->name('jadwalAwal');
+
+Route::get('/tambahJadwal', [JadwalController::class, 'tampilTambahJadwal'])->name('TambahJadwal');
+Route::post('/tambahJadwal', [JadwalController::class, 'processTambahJadwal']);
 
     Route::get('/home', function () {
         return 'Home Page';

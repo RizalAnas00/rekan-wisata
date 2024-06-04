@@ -17,11 +17,11 @@
                 <h1 class="text-xl font-semibold text-gray-700 ml-4">Tambah Jadwal</h1>
             </div>
 
-            <form method="POST" action="">
-
+            <form method="POST" action="{{ route('TambahJadwal') }}">
+                @csrf
                 <div class="mb-4">
-                  <label for="jadwal" class="text-sm text-gray-600 block mb-2">Nama Jadwal atau Acara</label>
-                  <input type="text" id="jadwal" name="jadwal" class="bg-amber-50 text-gray-800 w-full px-2 py-2 rounded-2xl border border-2 border-lime-950 shadow-sm" >
+                  <label for="nama" class="text-sm text-gray-600 block mb-2">Nama Jadwal atau Acara</label>
+                  <input type="text" id="nama" name="nama" class="bg-amber-50 text-gray-800 w-full px-2 py-2 rounded-2xl border border-2 border-lime-950 shadow-sm" >
                 </div>
                 <div class="mb-4">
                     <label for="kota" class="text-sm text-gray-600 block mb-2">Kota Wisata</label>

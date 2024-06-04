@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('jadwals', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
             $table->foreignId('wisata_id')->constrained()->onDelete('cascade');
-            $table->date('tanggal');
+            $table->date('tanggal_berangkat');
+            $table->string('deskripsi');
             $table->timestamps();
         });
     }
