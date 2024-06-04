@@ -145,7 +145,7 @@
                 <div class="overflow-x-auto">
                     <div class="flex p-4 gap-2">
                         @foreach($wisatas as $wisata)
-                            <a href="{{ route('detail.Wisata', $wisata->id) }}" class="w-52 h-72 text-wrap whitespace-nowrap overflow-y-auto flex-shrink-0 bg-amber-50 border rounded-2xl shadow-md mr-4">
+                            <a href="{{ route('detail.Wisata', $wisata->id) }}" class=" w-52 h-72 text-wrap whitespace-nowrap overflow-y-auto flex-shrink-0 bg-amber-50 border rounded-2xl shadow-md mr-4">
                                 @if ($wisata->image_path)
                                     <img src="{{ $wisata->image_path }}" alt="{{ $wisata->nama_wisata }}" class="w-full h-32 object-cover rounded-md mb-2">
                                 @endif

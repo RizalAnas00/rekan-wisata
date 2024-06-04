@@ -18,10 +18,10 @@
             </div>
         </div>
     </header>
-
+<main>
     <!-- Background Image Section -->
     <div class="relative flex flex-col justify-center items-center h-screen">
-        <img src="{{ asset('images/pantai2.jpg') }}" alt="Background Image" class="absolute inset-0 w-full h-full object-cover z-0">
+        <img src="{{ asset('images/background/pantai2.jpg') }}" alt="Background Image" class="absolute inset-0 w-full h-full object-cover z-0">
         <div class="absolute inset-0 bg-gradient-to-t from-[#283618] to-transparent z-10"></div>
         <div class="z-20 pt-96 px-6 mt-32 lg:mt-64 text-center text-[#FEFAE0] font-bold text-xl lg:text-3xl lg:mb-10">
             <h2>NIKMATI KEINDAHAN ALAM DAN BUDAYA INDONESIA BERSAMA</h2>
@@ -32,16 +32,14 @@
         </div>
     </div>
 
-    <div class="absolute left-0 w-full h-3/4 bg-gradient-to-b from-[#283618] to-transparent z-10 mb-20">
+    <!-- Ganti Absolute ke Relative fixed the footer, tapi malah ada gap -->
+    <div class="absolute left-0 w-full h-3/4 bg-gradient-to-b from-[#283618] to-transparent z-auto mb-20">
         <div class="mt-32 pt-32 lg:mt-20 text-center text-[#283618] font-bold text-2xl lg:text-3xl">
             <p>Rekan Wisata Bisa Apa?</p>
         </div>
-        <!-- Div yang akan di duplikat jadi 5 card atau div, mempunyai grid fleksibel, jadi nantinya akan ada 5 card.
-        Jika layarnya mengecil sebesar HP maka hanya akan ada 1 kolom dan 5 baris. jika layarnya besar maka mampu hingga 2 kolom dan 3 baris. intinya fleksibel dan responsive
-        Div pertama jika terdapat 2 kolom kalau jumlah cardnya 5, maka div pertama yang paling besar memenuhi baris pertama lalu baris selanjutnya diisi 2 card. -->
         <div class = "mx-auto w-full max-w-screen-md h-3/4 px-10">
             <div class="pt-8 flex items-center justify-center">
-                <div class="w-full h-38 flex flex-col items-center  bg-[#E0D5BB] rounded-3xl p-4">
+                <div class="w-full h-38 flex flex-col items-center  bg-[#FEFAE0] rounded-3xl p-4 shadow-md">
                     <img src="{{ asset('images/bumipin.svg') }}" alt="Background Image" class="w-8 h-8 object-cover mb-0.5">
                     <p class="text-center text-[#283618] font-bold text-base lg:text-lg">Berkeliling Indonesia</p>
                     <p class="text-xs text-center mt-3">
@@ -50,8 +48,8 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 gap-4 pt-5 md:grid-cols-2 lg:grid-cols-2 items-center mx-auto"> 
-                <div class="w-full h-38 flex flex-col items-center justify-center lg:h-64 pb-6 bg-[#E0D5BB] rounded-3xl p-4"> 
+            <div class="grid grid-cols-1 gap-4 pt-5 md:grid-cols-2 lg:grid-cols-2 items-center mx-auto "> 
+                <div class="w-full h-38 flex flex-col items-center justify-center lg:h-64 pb-6 bg-[#FEFAE0] rounded-3xl p-4 shadow-md"> 
                     <div class="flex items-center justify-center">
                         <img src="{{ asset('images/peoplehead.svg') }}" alt="Background Image" class="w-8 h-8 object-cover">
                     </div>
@@ -60,7 +58,7 @@
                         Di beberapa destinasi wisata terdapat fitur tour guide agar perjalananmu jauh lebih seru
                     </p>
                 </div>
-                <div class="w-full h-38 flex flex-col items-center justify-center lg:h-64 pb-6 bg-[#E0D5BB] rounded-3xl p-4"> 
+                <div class="w-full h-38 flex flex-col items-center justify-center lg:h-64 pb-6 bg-[#FEFAE0] rounded-3xl p-4 shadow-md"> 
                     <div class="flex items-center justify-center">
                         <img src="{{ asset('images/37 rating.svg') }}" alt="Background Image" class="w-8 h-8 object-cover">
                     </div>
@@ -68,7 +66,7 @@
                     <p class="text-xs text-center mt-1">
                         Kita juga bisa melihat berbagai review unik dari para pengunjung yang telah mengunjungi destinasi wisata secara langsung                    </p>
                 </div>
-                <div class="w-full h-38 flex flex-col items-center justify-center lg:h-64 pb-6 bg-[#E0D5BB] rounded-3xl p-4"> 
+                <div class="w-full h-38 flex flex-col items-center justify-center lg:h-64 pb-6 bg-[#FEFAE0] rounded-3xl p-4 shadow-md"> 
                     <div class="flex items-center justify-center">
                         <img src="{{ asset('images/kalender.svg') }}" alt="Background Image" class="w-8 h-8 object-cover">
                     </div>
@@ -76,7 +74,7 @@
                     <p class="text-xs text-center mt-1">
                         Kita bisa menjadwalkan hari liburan untuk pergi ke destinasi wisata tertentu sebagai pengingat agar  rencana kita tidaklah wacana                    </p>
                 </div>
-                <div class="w-full h-38 flex flex-col items-center justify-center lg:h-64 pb-6 bg-[#E0D5BB] rounded-3xl p-4"> 
+                <div class="w-full h-38 flex flex-col items-center justify-center lg:h-64 pb-6 bg-[#FEFAE0] rounded-3xl p-4 shadow-md"> 
                     <div class="flex items-center justify-center">
                         <img src="{{ asset('images/berita.svg') }}" alt="Background Image" class="w-8 h-8 object-cover">
                     </div>
@@ -86,10 +84,49 @@
                 </div>
             </div>
 
+             <!-- Review Cards Section -->
+                <div class="w-3/4 mx-auto overflow-x-auto">
+                    <div class="mt-6 py-10 lg:mt-20 text-center text-[#606C38] font-bold text-2xl lg:text-3xl ">
+                        <p>Apa kata mereka tentang Rekan Wisata...?</p>
+                    </div>
+                    <div class="flex space-x-4">
+                        @for ($i = 0; $i < 5; $i++)
+                            <div class="flex-none w-60 h-72 bg-[#283618] rounded-3xl overflow-hidden shadow-inner-md-custom">
+                                <div class="flex flex-col h-full justify-between">
+                                    <div class="p-4 text-center text-[#FEFAE0] font-bold text-lg">
+                                        <p>Website yang bagus sekali, sangat bermanfaat, sangat membantu, saya sebagai pengunjung merasa puas dengan website ini</p>
+                                    </div>
+                                    <div class="bg-[#606C38] flex items-center p-4 text-[#FEFAE0]">
+                                        <img src="{{ asset('images/profil terang.svg') }}" alt="User Image" class="w-8 h-8 rounded-full">
+                                        <div class="ml-2 font-semibold">
+                                            <p>Aceng Tegal William</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endfor
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-
+    </main>
     
+    {{-- <!-- Footer Section -->
+    <footer class="bg-[#283618] text-[#FEFAE0] py-10 bottom-0 w-full">
+        <div class="text-center mb-6">
+            <h2 class="text-lg font-semibold">Layanan Pelanggan</h2>
+        </div>
+        <div class="flex flex-col items-center space-y-2 mb-6">
+            <p class="flex items-center"><svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0 0 16 4H4a2 2 0 0 0-1.997 1.884zM18 8.118l-8 4-8-4V14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.118zM4 6.664l6 3 6-3V10L10 13l-6-3V6.664z"></path></svg> HealthBot@gmail.com</p>
+            <p class="flex items-center"><svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M2 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6zm2-.5a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h12a.5.5 0 0 0 .5-.5V6a.5.5 0 0 0-.5-.5H4zm.618 2.328a.5.5 0 0 1 .76.65l-1.5 2a.5.5 0 0 1-.76-.65l1.5-2zm7.764.764a.5.5 0 0 1 .236.671l-2 4a.5.5 0 1 1-.908-.435l2-4a.5.5 0 0 1 .672-.236zm-2.878 1.15a.5.5 0 0 1 .764.042l2 2.5a.5.5 0 1 1-.765.643l-2-2.5a.5.5 0 0 1 .043-.765zM10 9a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1z"></path></svg> Jalan apajadah Kel. Kejambron Jawa Tengah, Indonesia</p>
+            <p class="flex items-center"><svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M2 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5zm2-.5a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h12a.5.5 0 0 0 .5-.5V5a.5.5 0 0 0-.5-.5H4z"></path><path d="M8 7a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0V8a1 1 0 0 1 1-1zm0 4a1 1 0 0 1-1-1H5v2h2a1 1 0 0 1-1 1zm0-2H6V9h2a1 1 0 0 1 0 2zm4 0a1 1 0 0 1-1 1h-2v-2h2a1 1 0 0 1 1 1zm0-1h-2a1 1 0 0 1 1-1h1v2h-1a1 1 0 0 1 1-1z"></path></svg> 021-777-9782</p>
+        </div>
+        <div class="text-center">
+            <p class="text-sm">&copy; 2023 Rekan Wisata. All Rights Reserved.</p>
+        </div>
+    </footer> --}}
+
+    <!--SIDEBAR-->
 
     <!-- Overlay -->
     <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden"></div>
@@ -159,5 +196,7 @@
             });
         });
     </script>
+    
 </body>
+
 </html>
