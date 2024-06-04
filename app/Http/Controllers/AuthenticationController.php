@@ -21,6 +21,7 @@ class AuthenticationController extends Controller
         return view('daftar');
     }
 
+    //isikan data email dan password
     public function processRegisterFormStep1(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -46,6 +47,7 @@ class AuthenticationController extends Controller
         return view('DataDiri');
     }
 
+    //isikan data diri
     public function processRegisterFormStep2(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -87,7 +89,7 @@ class AuthenticationController extends Controller
         return redirect()->route('login')->with('success', 'Akun berhasil dibuat! Silakan login.');
     }
 
-
+    //login
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
