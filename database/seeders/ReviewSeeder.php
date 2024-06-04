@@ -14,17 +14,17 @@ class ReviewSeeder extends Seeder
     public function run(): void
     {
         Review::create([
-            'kontent' => 'Parkirnya luas, sangat nyaman, pedagangnya ramah',	
-            'rating' => 3,  
+            'kontent' => 'Parkirnya luas, sangat nyaman, pedagangnya ramah',
+            'rating' => 3,
             'wisata_id' => 1,
-            'user_id' => 2,
+            'user_id' => 1,
         ]);
 
         Review::create([
-            'kontent' => 'tempatnya bagus dan nyaman. Padahal jaraknya jauh',	
-            'rating' => 4,  
+            'kontent' => 'tempatnya bagus dan nyaman. Padahal jaraknya jauh',
+            'rating' => 4,
             'wisata_id' => 1,
-            'user_id' => 3,
+            'user_id' => 1,
         ]);
     }
 }

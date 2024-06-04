@@ -51,7 +51,7 @@ class AuthenticationController extends Controller
     public function processRegisterFormStep2(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'nama' => 'required|string|max:255',    
+            'nama' => 'required|string|max:255',
             'tempat_lahir' => 'required|string|max:255',
             'tanggal_lahir' => 'required|date',
             'no_hp' => 'required|string|max:15',
