@@ -47,17 +47,17 @@ class AuthenticationController extends Controller
     }
 
     public function processRegisterFormStep2(Request $request)
-{
-    $validator = Validator::make($request->all(), [
-        'nama' => 'required|string|max:255',    
-        'tempat_lahir' => 'required|string|max:255',
-        'tanggal_lahir' => 'required|date',
-        'no_hp' => 'required|string|max:15',
-        'jenis_kelamin' => 'required|string|max:10',
-        'pekerjaan' => 'required|string|max:255',
-    ]);
+    {
+        $validator = Validator::make($request->all(), [
+            'nama' => 'required|string|max:255',    
+            'tempat_lahir' => 'required|string|max:255',
+            'tanggal_lahir' => 'required|date',
+            'no_hp' => 'required|string|max:15',
+            'jenis_kelamin' => 'required|string|max:10',
+            'pekerjaan' => 'required|string|max:255',
+        ]);
 
-    if ($validator->fails()) {
+        if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
 

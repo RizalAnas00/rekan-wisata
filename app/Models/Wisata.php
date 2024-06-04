@@ -17,5 +17,11 @@ class Wisata extends Model
         'kategori_wisata', 
         'image_path'
     ];
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
 }
 

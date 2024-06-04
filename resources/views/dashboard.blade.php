@@ -13,12 +13,17 @@
                 <button src="{{ asset('images/sidebarbtn.png') }}" alt="Sidebar" class="block pr-2"></button>
                 <img src="{{ asset('images/notifIcon.png') }}" alt="Notification" class="p-2 block">
             </div>
-            <input
-                type="text"
-                class="p-2 border border-gray-300 rounded-md text-black"
-                placeholder="Pariwisata, Semarang, Jenis Wisata"
-            />
+            <form method="GET" action="{{ route('search.wisata') }}" class="flex-grow ml-4">
+                <input
+                    type="text"
+                    name="search"
+                    class="p-2 border border-gray-300 rounded-md text-black w-full"
+                    placeholder="Pariwisata, Semarang, Jenis Wisata"
+                    value="{{ request('search') }}"
+                />
+            </form>
         </header>
+        
 
         <main class="flex-1 container mx-auto px-4 py-8">
             
@@ -33,11 +38,11 @@
             </div>
 
             <section class="mb-6">
-                <h2 class="text-xl font-semibold mb-2">Rekomendasi Pariwisata</h2>
+                <a href="{{ route('rekomendasi.Wisata') }}" class="text-xl font-semibold mb-2 hover:underline">Rekomendasi Pariwisata > </a>
                 <div class="overflow-x-auto">
                     <div class="flex p-4 gap-2">
                         @foreach($wisatas as $wisata)
-                            <div class="w-52 h-72 text-wrap whitespace-nowrap overflow-y-auto flex-shrink-0 bg-amber-50 border rounded-md shadow-md mr-4">
+                            <a href="{{ route('detail.Wisata', $wisata->id) }}" class="w-52 h-72 text-wrap whitespace-nowrap overflow-y-auto flex-shrink-0 bg-amber-50 border rounded-2xl shadow-md mr-4">
                                 @if ($wisata->image_path)
                                     <img src="{{ $wisata->image_path }}" alt="{{ $wisata->nama_wisata }}" class="w-full h-32 object-cover rounded-md mb-2">
                                 @endif
@@ -48,7 +53,7 @@
                                 <p class="px-4 font-bold text-sm text-green-900">{{ $wisata->kategori_wisata }}</p>
                                 <p class="px-4 text-sm text-gray-600">{{ $wisata->alamat_lengkap }}</p>
                                 <p class="pb-1 px-4 mt-1 mb-2 text-xs">{{ $wisata->deskripsi_wisata }}</p>
-                            </div>
+                            </a>
                         @endforeach
                     </div>
                 </div>
@@ -59,7 +64,7 @@
                 <h2 class="text-xl font-semibold mb-2">Pilihan Pariwisata</h2>
                 <div class="flex-wrap grid-row-2 gap-2 py-3">
                     @foreach($wisatas->unique('kategori_wisata') as $wisata)
-                        <button class="px-4 py-2 bg-[#283618] text-white rounded-md m-1.5">{{ $wisata->kategori_wisata }}</button>
+                        <button class="px-4 py-2 bg-[#283618] text-white rounded-lg m-1.5">{{ $wisata->kategori_wisata }}</button>
                     @endforeach
                 </div>
             </section>
@@ -70,9 +75,9 @@
                 <div class="overflow-x-auto">
                     <div class="flex p-4 gap-2">
                         @foreach($beritas as $berita)
-                            <div class="w-72 h-60 text-wrap overflow-hidden flex-shrink-0 bg-amber-50 border rounded-md shadow-md mr-4">
+                            <div class="w-96 h-60 text-wrap overflow-hidden flex-shrink-0 bg-amber-50 border rounded-2xl shadow-md mr-4">
                                 @if ($berita->image_path)
-                                    <img src="{{ $berita->image_path }}" alt="{{ $berita->nama_wisata }}" class="w-full h-32 object-cover rounded-md mb-2">
+                                    <img src="{{ $berita->image_path }}" alt="{{ $berita->nama_wisata }}" class="w-full h-32 object-cover rounded-b-none mb-2">
                                 @endif
                                 <div class="p-4">
                                     <h3 class="text-lg font-semibold">{{ $berita->judul }}</h3>

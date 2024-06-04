@@ -3,7 +3,12 @@
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\WisataController;
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\LandingPageController;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/', [LandingPageController::class, 'index'])->name('landingpage');
 
 Route::get('/login', [AuthenticationController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthenticationController::class, 'login']);
@@ -17,11 +22,11 @@ Route::post('/register/step2', [AuthenticationController::class, 'processRegiste
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [WisataController::class, 'index'])->name('dashboard');
+    Route::get('/rekomendasiWisata', [WisataController::class, 'showRekomendasi'])->name('rekomendasi.Wisata');
+    Route::get('/wisata/{id}', [WisataController::class, 'tampilDetail'])->name('detail.Wisata');
 
-Route::get('/jadwal', [JadwalController::class, 'index'])->name('jadwalAwal');
-
-Route::get('/tambahJadwal', [JadwalController::class, 'tampilTambahJadwal'])->name('TambahJadwal');
-Route::post('/tambahJadwal', [JadwalController::class, 'processTambahJadwal']);
+Route::get('/jadwal', [JadwalController::class, 'index']);
+Route::get('/tambahJadwal', [JadwalController::class, 'tampilTambahJadwal']);
 
     Route::get('/home', function () {
         return 'Home Page';
