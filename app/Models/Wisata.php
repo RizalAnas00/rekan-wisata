@@ -18,6 +18,7 @@ class Wisata extends Model
         'image_path'
     ];
 
+    //relasi ke model review
     public function reviews()
     {
         return $this->hasMany(Review::class);

@@ -6,7 +6,7 @@
     <title>Landing Page</title>
     @vite('resources/css/app.css')
 </head>
-<body class="bg-[#FEFAE0]">
+<body class="bg-[#FFFFFF]">
     <header class="bg-[#283618] shadow-2xl">
         <div class="flex max-w-7xl mx-auto p-4 gap-3">
             <img src="{{ asset('images/logoterang.svg') }}" alt="Logo" class="w-12 h-12">
@@ -21,16 +21,75 @@
 
     <!-- Background Image Section -->
     <div class="relative flex flex-col justify-center items-center h-screen">
-        <img src="{{ asset('images/pantai1.jpg') }}" alt="Background Image" class="absolute inset-0 w-full h-full object-cover z-0">
+        <img src="{{ asset('images/pantai2.jpg') }}" alt="Background Image" class="absolute inset-0 w-full h-full object-cover z-0">
         <div class="absolute inset-0 bg-gradient-to-t from-[#283618] to-transparent z-10"></div>
-        <div class="z-20 text-center text-[#FEFAE0] font-bold text-xl lg:text-2xl container mx-auto px-8 lg:px-0">
+        <div class="z-20 pt-96 px-6 mt-32 lg:mt-64 text-center text-[#FEFAE0] font-bold text-xl lg:text-3xl lg:mb-10">
             <h2>NIKMATI KEINDAHAN ALAM DAN BUDAYA INDONESIA BERSAMA</h2>
-            <h2 class="text-2xl lg:text-3xl text-[#DDA15E]">REKAN WISATA</h2>
+            <h2 class="text-3xl lg:text-4xl text-[#DDA15E]">REKAN WISATA</h2>
         </div>
-        <div class="z-20 mt-8 lg:mt-12">
+        <div class="z-20 mt-20 lg:mt-24 text-center text-[#FEFAE0] font-bold text-lg lg:text-xl">
             <button onclick="window.location.href='{{ route('login') }}'" class="w-56 md:w-64 h-10 md:h-12 bg-[#BC6C25] text-[#FEFAE0] font-bold text-lg md:text-xl rounded-xl">Login</button>
         </div>
     </div>
+
+    <div class="absolute left-0 w-full h-3/4 bg-gradient-to-b from-[#283618] to-transparent z-10 mb-20">
+        <div class="mt-32 pt-32 lg:mt-20 text-center text-[#283618] font-bold text-2xl lg:text-3xl">
+            <p>Rekan Wisata Bisa Apa?</p>
+        </div>
+        <!-- Div yang akan di duplikat jadi 5 card atau div, mempunyai grid fleksibel, jadi nantinya akan ada 5 card.
+        Jika layarnya mengecil sebesar HP maka hanya akan ada 1 kolom dan 5 baris. jika layarnya besar maka mampu hingga 2 kolom dan 3 baris. intinya fleksibel dan responsive
+        Div pertama jika terdapat 2 kolom kalau jumlah cardnya 5, maka div pertama yang paling besar memenuhi baris pertama lalu baris selanjutnya diisi 2 card. -->
+        <div class = "mx-auto w-full max-w-screen-md h-3/4 px-10">
+            <div class="pt-8 flex items-center justify-center">
+                <div class="w-full h-38 flex flex-col items-center  bg-[#E0D5BB] rounded-3xl p-4">
+                    <img src="{{ asset('images/bumipin.svg') }}" alt="Background Image" class="w-8 h-8 object-cover mb-0.5">
+                    <p class="text-center text-[#283618] font-bold text-base lg:text-lg">Berkeliling Indonesia</p>
+                    <p class="text-xs text-center mt-3">
+                        Dengan Rekan Wisata kita bisa mencari informasi dari berbagai destinasi wisata di seluruh Indonesia lohhh
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-4 pt-5 md:grid-cols-2 lg:grid-cols-2 items-center mx-auto"> 
+                <div class="w-full h-38 flex flex-col items-center justify-center lg:h-64 pb-6 bg-[#E0D5BB] rounded-3xl p-4"> 
+                    <div class="flex items-center justify-center">
+                        <img src="{{ asset('images/peoplehead.svg') }}" alt="Background Image" class="w-8 h-8 object-cover">
+                    </div>
+                    <p class="text-center text-[#283618] font-bold text-lg lg:text-xl mt-3">Tour Guide Ramah Tamah</p>
+                    <p class="text-xs text-center mt-1">
+                        Di beberapa destinasi wisata terdapat fitur tour guide agar perjalananmu jauh lebih seru
+                    </p>
+                </div>
+                <div class="w-full h-38 flex flex-col items-center justify-center lg:h-64 pb-6 bg-[#E0D5BB] rounded-3xl p-4"> 
+                    <div class="flex items-center justify-center">
+                        <img src="{{ asset('images/37 rating.svg') }}" alt="Background Image" class="w-8 h-8 object-cover">
+                    </div>
+                    <p class="text-center text-[#283618] font-bold text-lg lg:text-xl mt-3">Review Pengunjung</p>
+                    <p class="text-xs text-center mt-1">
+                        Kita juga bisa melihat berbagai review unik dari para pengunjung yang telah mengunjungi destinasi wisata secara langsung                    </p>
+                </div>
+                <div class="w-full h-38 flex flex-col items-center justify-center lg:h-64 pb-6 bg-[#E0D5BB] rounded-3xl p-4"> 
+                    <div class="flex items-center justify-center">
+                        <img src="{{ asset('images/kalender.svg') }}" alt="Background Image" class="w-8 h-8 object-cover">
+                    </div>
+                    <p class="text-center text-[#283618] font-bold text-lg lg:text-xl mt-3">Penjadwalan Wisata</p>
+                    <p class="text-xs text-center mt-1">
+                        Kita bisa menjadwalkan hari liburan untuk pergi ke destinasi wisata tertentu sebagai pengingat agar  rencana kita tidaklah wacana                    </p>
+                </div>
+                <div class="w-full h-38 flex flex-col items-center justify-center lg:h-64 pb-6 bg-[#E0D5BB] rounded-3xl p-4"> 
+                    <div class="flex items-center justify-center">
+                        <img src="{{ asset('images/berita.svg') }}" alt="Background Image" class="w-8 h-8 object-cover">
+                    </div>
+                    <p class="text-center text-[#283618] font-bold text-lg lg:text-xl mt-3">Berita Dunia Pariwisata</p>
+                    <p class="text-xs text-center mt-1">
+                        Fitur berita disediakan secara ekslusif untuk tetap up to date tentang berita terkini pariwisata Indonesia                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    
 
     <!-- Overlay -->
     <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden"></div>
@@ -66,24 +125,35 @@
         </div>
     </div>
 
+    <!-- Event listener for the toggle button and close button of the navigation drawer. -->
+    <!-- It toggles the visibility of the drawer and the overlay. -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Get the toggle button and the drawer element
             const toggleButton = document.querySelector('[data-drawer-show="drawer-navigation"]');
             const drawer = document.getElementById('drawer-navigation');
+            
+            // Get the close button and the overlay element
             const closeButton = drawer.querySelector('[data-drawer-hide="drawer-navigation"]');
             const overlay = document.getElementById('overlay');
             
+            // Add event listener to the toggle button
             toggleButton.addEventListener('click', function () {
+                // Toggle the visibility of the drawer and the overlay
                 drawer.classList.toggle('translate-x-full');
                 overlay.classList.toggle('hidden');
             });
             
+            // Add event listener to the close button
             closeButton.addEventListener('click', function () {
+                // Hide the drawer and the overlay
                 drawer.classList.add('translate-x-full');
                 overlay.classList.add('hidden');
             });
 
+            // Add event listener to the overlay
             overlay.addEventListener('click', function () {
+                // Hide the drawer and the overlay
                 drawer.classList.add('translate-x-full');
                 overlay.classList.add('hidden');
             });
