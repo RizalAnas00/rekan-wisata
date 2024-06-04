@@ -36,7 +36,7 @@ class WisataController extends Controller
         $wisatas = $query->get();
         $kategoris = Wisata::select('kategori_wisata')->distinct()->get();
         $wilayahs = Wisata::select('kota')->distinct()->get();
-    
+
         return view('rekomendasiWisata', compact('wisatas', 'kategoris', 'wilayahs'));
     }
 
@@ -60,9 +60,9 @@ class WisataController extends Controller
         $searchTerm = $request->input('search');
         $selectedWilayah = $request->input('wilayah');
         $selectedKategori = $request->input('kategori');
-        
+
         $query = Wisata::query();
-    
+
         if ($searchTerm) {
             $query->where('nama_wisata', 'LIKE', "%{$searchTerm}%")
                 ->orWhere('kota', 'LIKE', "%{$searchTerm}%")
@@ -73,15 +73,15 @@ class WisataController extends Controller
         if ($selectedWilayah && $selectedWilayah != 'all') {
             $query->where('kota', $selectedWilayah);
         }
-    
+
         if ($selectedKategori && $selectedKategori != 'all') {
             $query->where('kategori_wisata', $selectedKategori);
         }
-    
+
         $wisatas = $query->get();
         $kategoris = Wisata::select('kategori_wisata')->distinct()->get();
         $wilayahs = Wisata::select('kota')->distinct()->get();
-    
+
         return view('rekomendasiWisata', compact('wisatas', 'kategoris', 'wilayahs'));
     }
 }
