@@ -17,7 +17,7 @@
                 <h1 class="text-xl font-semibold text-gray-700 ml-4">Tambah Jadwal</h1>
             </div>
 
-            <form method="POST" action="{{ route('TambahJadwal') }}">
+            <form method="POST" action="">
                 @csrf
                 <div class="mb-4">
                   <label for="nama" class="text-sm text-gray-600 block mb-2">Nama Jadwal atau Acara</label>
