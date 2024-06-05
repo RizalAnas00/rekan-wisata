@@ -167,7 +167,7 @@
                 <div class="overflow-x-auto">
                     <div class="flex p-4 gap-2">
                         @foreach($beritas as $berita)
-                            <div class="w-96 h-60 text-wrap overflow-hidden flex-shrink-0 bg-amber-50 border rounded-2xl shadow-md mr-4">
+                            <a href="{{ route('detail.berita', $berita->id) }}" class="w-96 h-60 text-wrap overflow-hidden flex-shrink-0 bg-amber-50 border rounded-2xl shadow-md mr-4">
                                 @if ($berita->image_path)
                                     <img src="{{ $berita->image_path }}" alt="{{ $berita->nama_wisata }}" class="w-full h-32 object-cover rounded-b-none mb-2">
                                 @endif
@@ -176,7 +176,7 @@
                                     <p class="text-sm text-gray-600">By {{ $berita->penulis }} on {{ $berita->tanggal_terbit }}</p>
                                     <p class="text-wrap mt-2 mb-2">{{ $berita->kontent }}</p>
                                 </div>
-                            </div>
+                            </a>
                         @endforeach
                     </div>
                 </div>
