@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
             $table->string('kota_wisata');
+            $table->string('bahasa');
+            $table->string('nama_tempat_wisata');
             $table->string('no_hp');
             $table->string('email')->unique();
             $table->string('password');
