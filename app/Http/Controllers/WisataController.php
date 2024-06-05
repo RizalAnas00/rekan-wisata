@@ -21,6 +21,7 @@ class WisataController extends Controller
         return view('dashboard', compact('wisatas', 'beritas', 'users'));
     }
 
+    // Tampil Rekomendasi
     public function showRekomendasi(Request $request)
     {
         $query = Wisata::query();
@@ -40,6 +41,7 @@ class WisataController extends Controller
         return view('rekomendasiWisata', compact('wisatas', 'kategoris', 'wilayahs'));
     }
 
+    // Tampil Detail dan Rekomendasi dan dashboard
     public function tampilDetail($id)
     {
         $wisata = Wisata::find($id);
@@ -53,8 +55,7 @@ class WisataController extends Controller
         return view('detailWisata', compact('wisata', 'reviews', 'ratingTerkini'));
     }
 
-
-
+    // Search Wisata di dashboard dan rekomendasi
     public function searchWisata(Request $request)
     {
         $searchTerm = $request->input('search');
