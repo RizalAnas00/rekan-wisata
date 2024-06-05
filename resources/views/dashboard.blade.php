@@ -134,20 +134,27 @@
                 <div class="overflow-x-auto">
                     <div class="flex p-4 gap-2">
                         @foreach($wisatas as $wisata)
-                            <a href="{{ route('detail.Wisata', $wisata->id) }}" class=" w-52 h-72 text-wrap whitespace-nowrap overflow-y-auto flex-shrink-0 bg-amber-50 border rounded-2xl shadow-md mr-4">
-                                @if ($wisata->image_path)
-                                    <img src="{{ $wisata->image_path }}" alt="{{ $wisata->nama_wisata }}" class="w-full h-32 object-cover rounded-md mb-2">
-                                @endif
-                                <div class="flex justify-between items-center px-4 mb-1">
-                                    <h3 class="pr-0.5 text-lg font-[750] text-emerald-950">{{ $wisata->nama_wisata }}</h3>
-                                    <h3 class="text-lg font-light text-lime-700">{{ $wisata->rating ?? '4.7' }}/5.0</h3>
-                                </div>
-                                <p class="px-4 font-bold text-sm text-green-900">{{ $wisata->kategori_wisata }}</p>
-                                <p class="px-4 text-sm text-gray-600">{{ $wisata->alamat_lengkap }}</p>
-                                <p class="pb-1 px-4 mt-1 mb-2 text-xs">{{ $wisata->deskripsi_wisata }}</p>
-                            </a>
-                        @endforeach
+                        <a href="{{ route('detail.Wisata', $wisata->id) }}" class="w-52 h-72 text-wrap whitespace-nowrap overflow-y-auto flex-shrink-0 bg-amber-50 border rounded-2xl shadow-md mr-4">
+                            @if ($wisata->image_path)
+                                <img src="{{ $wisata->image_path }}" alt="{{ $wisata->nama_wisata }}" class="w-full h-32 object-cover rounded-md mb-2">
+                            @endif
+                            <div class="flex justify-between items-center px-4 mb-1">
+                                <h3 class="pr-0.5 text-lg font-[750] text-emerald-950">{{ $wisata->nama_wisata }}</h3>
+                                <h3 class="text-lg font-light text-lime-700">
+                                    @if ($wisata->average_rating)
+                                        {{ number_format($wisata->average_rating, 1) }}/5
+                                    @else
+                                        xx/5
+                                    @endif
+                                </h3>
+                            </div>
+                            <p class="px-4 font-bold text-sm text-green-900">{{ $wisata->kategori_wisata }}</p>
+                            <p class="px-4 text-sm text-gray-600">{{ $wisata->alamat_lengkap }}</p>
+                            <p class="pb-1 px-4 mt-1 mb-2 text-xs">{{ $wisata->deskripsi_wisata }}</p>
+                        </a>
+                    @endforeach
                     </div>
+                    
                 </div>
             </section>
 

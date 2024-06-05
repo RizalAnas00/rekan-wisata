@@ -2,34 +2,37 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Review;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Review;
 
 class ReviewController extends Controller
 {
-    // Method to show the review form
-    public function create()
+    public function create(Request $request)
     {
-        return view('reviewUser');
+        $wisata_id = $request->query('wisata_id');
+        return view('reviewUser', compact('wisata_id'));
     }
 
-    // Method to handle the review form submission
     public function store(Request $request)
     {
         $request->validate([
             'rating' => 'required|integer|min:1|max:5',
             'kontent' => 'required|string|max:1000',
-            'wisata_id' => 'required|exists:wisata,id', // Assuming wisata is the table for Wisata model
+            'wisata_id' => 'required|exists:wisatas,id', // Make sure 'wisata' is the correct table name
         ]);
 
-        Review::create([
+        $review = new Review ([
             'kontent' => $request->kontent,
             'rating' => $request->rating,
             'wisata_id' => $request->wisata_id,
             'user_id' => Auth::id(),
         ]);
 
-        return redirect()->route('detailWisata')->with('success', 'Review submitted successfully');
+        $review->save();
+
+        return redirect()->route('detail.Wisata', ['id' => $request->wisata_id])->with('success', 'Review submitted successfully');
     }
 }
+

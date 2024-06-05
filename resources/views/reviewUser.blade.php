@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Rating</title>
-    @vite('resources/css/app.css')
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100">
 
@@ -16,7 +16,7 @@
         <span class="font-bold">Tambah Rating</span>
     </button>
 
-    <form action="{{ route('store.review') }}" method="POST">
+    <form method="POST" action="{{ route('store.review') }}">
         @csrf
         <div class="mb-4">
             <label for="rating" class="block text-gray-700 font-semibold mb-2">Masukkan Rating</label>

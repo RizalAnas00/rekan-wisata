@@ -21,10 +21,9 @@ class Review extends Model
         return $this->belongsTo(Wisata::class);
     }
 
-    // Relasi ke model Pengunjung
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
-    } 
-
+    }
 }
+
