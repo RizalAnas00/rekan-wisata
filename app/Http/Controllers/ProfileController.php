@@ -40,7 +40,7 @@ class ProfileController extends Controller
 
         $user->email = $request->email;
         /** @var \App\Models\User $user **/
-        $user->save();
+        $user-> save();
 
         return redirect()->route('profile.show')->with('success', 'Email updated successfully');
     }
