@@ -14,12 +14,13 @@ class WisataController extends Controller
 {
     public function index()
     {
-        $wisatas = Wisata::all();
+        $wisatas = Wisata::with('reviews')->get();
         $beritas = Berita::all();
-        $users = Auth::user();
+        $user = Auth::user();
 
-        return view('dashboard', compact('wisatas', 'beritas', 'users'));
+        return view('dashboard', compact('wisatas', 'beritas', 'user'));
     }
+
 
     // Tampil Rekomendasi
     public function showRekomendasi(Request $request)

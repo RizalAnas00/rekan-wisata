@@ -16,7 +16,7 @@
             <div class="overflow-x-auto">
                 <div class="text-sm md:text-base lg:text-base xl:text-lg flex gap-4 mt-4 pt-4 text-center">
                     <a target="_blank" href="#" class="w-5/12 inline-block px-3 py-2 bg-[#283618] text-white rounded-2xl hover:bg-[#465f2a] flex-shrink-0">Lokasi</a>
-                    <a href="#" class="w-5/12 inline-block px-3 py-2 bg-[#283618] text-white rounded-2xl hover:bg-[#465f2a] flex-shrink-0">Rating</a>
+                    <a href="{{ route('create.review', ['wisata_id' => $wisata->id]) }}" class="w-5/12 inline-block px-3 py-2 bg-[#283618] text-white rounded-2xl hover:bg-[#465f2a] flex-shrink-0">Rating</a>
                     <a href="#" class="w-5/12 inline-block px-3 py-2 bg-[#283618] text-white rounded-2xl hover:bg-[#465f2a] flex-shrink-0">Tour Guide</a>
                 </div>
             </div>
