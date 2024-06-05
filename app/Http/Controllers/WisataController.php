@@ -84,6 +84,18 @@ class WisataController extends Controller
 
         return view('rekomendasiWisata', compact('wisatas', 'kategoris', 'wilayahs'));
     }
+
+    public function jadwal (){
+        return view('jadwal');
+    }
+
+    public function pesanTg (){
+        return view('pesanTg');
+    }
+
+    public function profile (){
+        return view('profile');
+    }
 }
 
 

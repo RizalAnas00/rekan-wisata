@@ -10,7 +10,7 @@
   <div class="flex items-center justify-center min-h-screen bg-gray-100 p-4">
     <div class="px-8 py-10 bg-white rounded-lg shadow-md text-left w-full max-w-2xl">
         <div class="flex items-center mb-8">
-            <a href="#" class="">
+            <a href="{{ route('dashboard') }}" class="" >
             <img src="images/back_black.png" alt="Back Button" class="w-4 h-4">
             </a>
             <h1 class="text-xl font-semibold text-gray-700 ml-4">Jadwal Liburan</h1>

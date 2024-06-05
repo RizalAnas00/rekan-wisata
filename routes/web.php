@@ -12,7 +12,7 @@ Route::get('/', [LandingPageController::class, 'index'])->name('landingpage');
 
 Route::get('/login', [AuthenticationController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthenticationController::class, 'login']);
-Route::post('/logout', [AuthenticationController::class, 'logout'])->name('logout');
+
 
 Route::get('/register/step1', [AuthenticationController::class, 'showRegisterFormStep1'])->name('register.step1');
 Route::post('/register/step1', [AuthenticationController::class, 'processRegisterFormStep1']);
@@ -25,13 +25,20 @@ Route::middleware('auth')->group(function () {
     Route::get('/rekomendasiWisata', [WisataController::class, 'showRekomendasi'])->name('rekomendasi.Wisata');
     Route::get('/wisata/{id}', [WisataController::class, 'tampilDetail'])->name('detail.Wisata');
 
-    Route::get('/jadwal', [JadwalController::class, 'index']);
+    // Routing sidebar
+    Route::get('/jadwal', [JadwalController::class, 'index'])->name('jadwal');
+    Route::get('/pesanTG', [WisataController::class, 'pesanTg'])->name('pesanTg');
+    Route::get('/profile', [WisataController::class, 'profile'])->name('profile');
+    Route::post('/logout', [AuthenticationController::class, 'logout'])->name('logout');
+
+    // Routing halaman jadwal
     Route::get('/tambahJadwal', [JadwalController::class, 'tampilTambahJadwal']);
 
     Route::post('/dashboard', [WisataController::class, 'searchWisata']);
     Route::get('/searchWisata', [WisataController::class, 'searchWisata'])->name('search.wisata');
 
     Route::get('/review', [ReviewController::class, 'index'])->name('review');
+
 
     Route::get('/home', function () {
         return 'Home Page';
