@@ -11,6 +11,7 @@ export default {
     "./resources/views/DataDiri.blade.php",
     "./resources/views/jadwal.blade.php",
     "./resources/views/berita.blade.php",
+    "./resources/views/profile.blade.php",
     "./resources/**/*.js",
     "./resources/**/*.vue",
   ],

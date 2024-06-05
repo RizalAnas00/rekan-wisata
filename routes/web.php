@@ -6,6 +6,7 @@ use App\Http\Controllers\WisataController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingPageController::class, 'index'])->name('landingpage');
@@ -48,6 +49,13 @@ Route::middleware('auth')->group(function () {
 
 //berita
     Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('detail.berita');
+
+//Profile
+    Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+    Route::get('/profile/edit-email', [ProfileController::class, 'editEmail'])->name('profile.editEmail');
+    Route::post('/profile/update-email', [ProfileController::class, 'updateEmail'])->name('profile.updateEmail');
+    Route::get('/profile/edit-phone', [ProfileController::class, 'editPhone'])->name('profile.editPhone');
+    Route::post('/profile/update-phone', [ProfileController::class, 'updatePhoneNumber'])->name('profile.updatePhoneNumber');
 
     Route::get('/home', function () {
         return 'Home Page';
