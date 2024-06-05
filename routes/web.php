@@ -29,7 +29,15 @@ Route::middleware('auth')->group(function () {
 //wisata
     Route::get('/wisata/{id}', [WisataController::class, 'tampilDetail'])->name('detail.Wisata');
 
-    Route::get('/jadwal', [JadwalController::class, 'index']);
+    // Routing sidebar
+    Route::get('/jadwal', [JadwalController::class, 'index'])->name('jadwal');
+    Route::get('/pesanTG', [WisataController::class, 'pesanTg'])->name('pesanTg');
+    Route::get('/profile', [WisataController::class, 'profile'])->name('profile');
+    Route::post('/logout', [AuthenticationController::class, 'logout'])->name('logout');
+
+
+//jadwal && tambah jadwal
+
     Route::get('/tambahJadwal', [JadwalController::class, 'tampilTambahJadwal']);
 //search
     Route::post('/dashboard', [WisataController::class, 'searchWisata']);
