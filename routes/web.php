@@ -39,6 +39,10 @@ Route::middleware('auth')->group(function () {
 
 
 //jadwal && tambah jadwal
+    Route::get('/jadwal/{jadwal}/edit', [JadwalController::class, 'edit'])->name('jadwal.edit');
+    Route::put('/jadwal/{jadwal}', [JadwalController::class, 'update'])->name('jadwal.update');
+    Route::get('/jadwal/create', [JadwalController::class, 'create'])->name('jadwal.create');
+    Route::post('/jadwal', [JadwalController::class, 'store'])->name('jadwal.store');
 
 //search
     Route::post('/dashboard', [WisataController::class, 'searchWisata']);
