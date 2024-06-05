@@ -39,6 +39,7 @@ class ProfileController extends Controller
         }
 
         $user->email = $request->email;
+        /** @var \App\Models\User $user **/
         $user-> save();
 
         return redirect()->route('profile.show')->with('success', 'Email updated successfully');
@@ -58,6 +59,7 @@ class ProfileController extends Controller
         }
 
         $user->no_hp = $request->phone_number;
+        /** @var \App\Models\User $user **/
         $user->save();
 
         return redirect()->route('profile.show')->with('success', 'Phone number updated successfully');
