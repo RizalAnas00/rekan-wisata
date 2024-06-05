@@ -9,6 +9,9 @@
 <body>
   <div class="flex items-center justify-center min-h-screen bg-gray-100">
     <div class="px-8 py-10 bg-white rounded-lg shadow-md text-left w-full">
+        <a href="{{ route('landingpage') }}" class="" >
+            <img src="images/back_black.png" alt="Back Button" class="w-4 h-4">
+            </a>
       <div class="flex justify-center pb-4 flex-col items-center">
         <!-- Pastikan path gambar sudah benar -->
         <img src="images/logo_2.png" alt="Rekan Wisata Logo" class="w-39 h-39">
@@ -45,7 +48,7 @@
                 <p>{{ session('error') }}</p>
               </div>
             @endif
-          
+
             <p class="text-center text-gray-600 mb-2">Belum punya akun? Daftar disini</p>
             <form method="GET" action="{{ route('register.step1') }}"> <!-- Ganti method menjadi GET dan tambahkan action -->
               <button class="w-full rounded-2xl bg-lime-900 px-2 py-3 text-center text-white font-medium shadow-sm focus:outline-none focus:ring focus:ring-lime-900 focus:ring-opacity-100">Daftar</button>
