@@ -45,7 +45,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/dashboard', [WisataController::class, 'searchWisata']);
     Route::get('/searchWisata', [WisataController::class, 'searchWisata'])->name('search.wisata');
 //review
-    Route::get('/review', [ReviewController::class, 'index'])->name('review');
+    Route::get('/reviews/create', [ReviewController::class, 'create'])->name('create.review');
+    Route::post('/reviews', [ReviewController::class, 'store'])->name('store.review');
 
 //berita
     Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('detail.berita');
