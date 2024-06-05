@@ -9,6 +9,9 @@
 <body>
   <div class="flex items-center justify-center min-h-screen bg-gray-100">
     <div class="px-8 py-10 bg-white rounded-lg shadow-md text-left w-full">
+        <a href="{{ route('register.step1') }}" class="" >
+            <img src="{{ asset('images/back_black.png') }}" alt="Back Button" class="w-4 h-4">
+            </a>
       <div class="flex justify-center pb-4 flex-col items-center">
         <img src="{{ asset('images/logo_2.png') }}" alt="Rekan Wisata Logo" class="w-39 h-39">
         <h1 class="text-2xl font-bold text-center">REKAN WISATA</h1>
