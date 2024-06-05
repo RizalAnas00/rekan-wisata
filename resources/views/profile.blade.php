@@ -13,22 +13,22 @@
             <a href="{{ route('dashboard') }}" class="" >
                 <img src="images/back_black.png" alt="Back Button" class="w-4 h-4">
             </a>
-            <h2 class="text-3xl font-bold text-center text-[#606c38] mb-2">Profile</h2>
-            <h3 class="text-xl text-center text-gray-700 mb-1">{{ $user->nama }}</h3>
-            <p class="text-center text-gray-500 mb-6">Users / Pengguna</p>
+            <h2 class="text-xl font-bold text-center text-[#606c38] mb-2">Profil Pengguna</h2>
+            <h3 class="font-serif text-2xl lg:text-4xl text-center font-semi-bold  text-[#404924] mb-1">Halo, {{ $user->nama }}</h3>
+            <p class="text-center text-gray-500 mb-6">Wisatawan</p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-1 gap-6 mb-6">
 
                 <div class="bg-gray-100 p-4 rounded border-l-4 border-[#606c38]">
-                    <label class="block text-gray-700 font-semibold">Email:</label>
+                    <label class="block text-gray-700 font-semibold">Alamat Email:</label>
                     <p class="mt-1 text-[#606c38]">{{ $user->email }}</p>
                 </div>
                 <div class="bg-gray-100 p-4 rounded border-l-4 border-[#606c38]">
-                    <label class="block text-gray-700 font-semibold">Phone Number:</label>
+                    <label class="block text-gray-700 font-semibold">No.Telp:</label>
                     <p class="mt-1 text-[#606c38]">{{ $user->no_hp }}</p>
                 </div>
                 <div class="bg-gray-100 p-4 rounded border-l-4 border-[#606c38]">
-                    <label class="block text-gray-700 font-semibold">Occupation:</label>
+                    <label class="block text-gray-700 font-semibold">Pekerjaan:</label>
                     <p class="mt-1 text-[#606c38]">{{ $user->pekerjaan }}</p>
                 </div>
             </div>
