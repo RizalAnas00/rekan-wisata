@@ -108,15 +108,15 @@
                     </div>
                 </div>
 
-                <div class="absolute left-0 w-full h-3/4 bg-gradient-to-b from-transparent to-[#283618] text-[#FEFAE0]">
-                    <div class="mt-36">
+                <div class="absolute left-0 w-full h-5/6 bg-gradient-to-b from-transparent to-[#283618] text-[#FEFAE0]">
+                    <div class="mt-40">
                         <div class="mx-10 mb-6">
-                            <h1 class=" text-[#FEFAE0] font-bold text-2xl lg:text-3xl">Layanan Pelanggan</h1>
+                            <h1 class=" text-[#FEFAE0] font-bold text-2xl lg:text-4xl">Layanan Pelanggan</h1>
                         </div>
                         <div class="flex flex-col mx-10 space-y-2 mb-6">
-                            <p class="flex items-center"><svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0 0 16 4H4a2 2 0 0 0-1.997 1.884zM18 8.118l-8 4-8-4V14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.118zM4 6.664l6 3 6-3V10L10 13l-6-3V6.664z"></path></svg> rekanwisata@gmail.com</p>
-                            <p class="flex items-center"><svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M2 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6zm2-.5a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h12a.5.5 0 0 0 .5-.5V6a.5.5 0 0 0-.5-.5H4zm.618 2.328a.5.5 0 0 1 .76.65l-1.5 2a.5.5 0 0 1-.76-.65l1.5-2zm7.764.764a.5.5 0 0 1 .236.671l-2 4a.5.5 0 1 1-.908-.435l2-4a.5.5 0 0 1 .672-.236zm-2.878 1.15a.5.5 0 0 1 .764.042l2 2.5a.5.5 0 1 1-.765.643l-2-2.5a.5.5 0 0 1 .043-.765zM10 9a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1z"></path></svg> Jalan apajadah Kel. Kejambron Jawa Tengah, Indonesia</p>
-                            <p class="flex items-center"><svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M2 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5zm2-.5a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h12a.5.5 0 0 0 .5-.5V5a.5.5 0 0 0-.5-.5H4z"></path><path d="M8 7a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0V8a1 1 0 0 1 1-1zm0 4a1 1 0 0 1-1-1H5v2h2a1 1 0 0 1-1 1zm0-2H6V9h2a1 1 0 0 1 0 2zm4 0a1 1 0 0 1-1 1h-2v-2h2a1 1 0 0 1 1 1zm0-1h-2a1 1 0 0 1 1-1h1v2h-1a1 1 0 0 1 1-1z"></path></svg> 021-777-9782</p>
+                            <p class="flex items-center"><img src="{{ asset('images/emailicon.svg') }}" alt="Email Icon" class="w-5 h-5 mr-2"> rekanwisata@gmail.com</p>
+                            <p class="flex items-center"><img src="{{ asset('images/alamaticon.svg') }}" alt="Email Icon" class="w-5 h-5 mr-2">Jalan apajadah Kel. Kejambron Jawa Tengah, Indonesia</p>
+                            <p class="flex items-center"><img src="{{ asset('images/telponIcon.svg') }}" alt="Email Icon" class="w-5 h-5 mr-2">021-777-9782</p>
                         </div>
                         <div class="mx-10">
                             <p class="text-sm">&copy; 2023 Rekan Wisata. All Rights Reserved.</p>
