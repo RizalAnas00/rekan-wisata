@@ -15,6 +15,7 @@ Route::get('/login', [AuthenticationController::class, 'showLoginForm'])->name('
 Route::post('/login', [AuthenticationController::class, 'login']);
 
 
+
 //Register
 Route::get('/register/step1', [AuthenticationController::class, 'showRegisterFormStep1'])->name('register.step1');
 Route::post('/register/step1', [AuthenticationController::class, 'processRegisterFormStep1']);
@@ -29,7 +30,7 @@ Route::middleware('auth')->group(function () {
 //wisata
     Route::get('/wisata/{id}', [WisataController::class, 'tampilDetail'])->name('detail.Wisata');
 
-    // Routing sidebar
+// Routing sidebar
     Route::get('/jadwal', [JadwalController::class, 'index'])->name('jadwal');
     Route::get('/pesanTG', [WisataController::class, 'pesanTg'])->name('pesanTg');
     Route::get('/profile', [WisataController::class, 'profile'])->name('profile');
