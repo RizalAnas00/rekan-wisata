@@ -10,6 +10,7 @@ export default {
     "./resources/views/daftar.blade.php",
     "./resources/views/DataDiri.blade.php",
     "./resources/views/jadwal.blade.php",
+    "./resources/views/berita.blade.php",
     "./resources/**/*.js",
     "./resources/**/*.vue",
   ],

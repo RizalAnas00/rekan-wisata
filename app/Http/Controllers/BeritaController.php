@@ -12,5 +12,11 @@ class BeritaController extends Controller
         $beritas = Berita::all();
         return view('dashboard', compact('beritas'));
     }
+
+    public function show($id)
+    {
+        $berita = Berita::find($id);
+        return view('berita', compact('berita'));
+    }
 }
 

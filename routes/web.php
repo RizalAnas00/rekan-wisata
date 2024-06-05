@@ -46,6 +46,8 @@ Route::middleware('auth')->group(function () {
 //review
     Route::get('/review', [ReviewController::class, 'index'])->name('review');
 
+//berita
+    Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('detail.berita');
 
     Route::get('/home', function () {
         return 'Home Page';
