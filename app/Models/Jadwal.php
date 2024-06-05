@@ -16,4 +16,9 @@ class Jadwal extends Model
         'tanggal_berangkat',
         'deskripsi',
     ];
+
+    public function wisata()
+    {
+        return $this->belongsTo(Wisata::class);
+    }
 }
