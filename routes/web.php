@@ -40,7 +40,6 @@ Route::middleware('auth')->group(function () {
 
 //jadwal && tambah jadwal
 
-    Route::get('/tambahJadwal', [JadwalController::class, 'tampilTambahJadwal']);
 //search
     Route::post('/dashboard', [WisataController::class, 'searchWisata']);
     Route::get('/searchWisata', [WisataController::class, 'searchWisata'])->name('search.wisata');
