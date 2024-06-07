@@ -7,6 +7,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TourGuideController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingPageController::class, 'index'])->name('landingpage');
@@ -66,6 +67,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/home', function () {
         return 'Home Page';
     })->name('home');
+
+
+//Tour-Guide
+Route::get('/tourguides', [TourGuideController::class, 'index'])->name('tour-guides.index');
 });
 
 
