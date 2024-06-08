@@ -64,6 +64,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile/edit-phone', [ProfileController::class, 'editPhone'])->name('profile.editPhone');
     Route::post('/profile/update-phone', [ProfileController::class, 'updatePhoneNumber'])->name('profile.updatePhoneNumber');
 
+//To
+    Route::get('/wisata/{id}/tour-guides', [WisataController::class, 'showTourGuides'])->name('wisata.tourGuides');
+
     Route::get('/home', function () {
         return 'Home Page';
     })->name('home');

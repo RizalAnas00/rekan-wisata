@@ -14,11 +14,11 @@
             @foreach ($guides as $guide)
                 <div class="bg-[#606C38] text-[white] rounded-lg p-4 flex justify-between items-center">
                     <div>
-                        <h2 class="text-lg text-[#DDA15E] font-semibold">{{ $guide['name'] }}</h2>
-                        <p>{{ $guide['gender'] }} | {{ $guide['age'] }} Tahun | {{ $guide['languages'] }}</p>
-                        <p>{{ $guide['location'] }}</p>
-                        <p>{{ $guide['tours'] }} Wisata</p>
-                        <p class="font-bold">Rp. {{ number_format($guide['price'], 0, ',', '.') }}</p>
+                        <h2 class="text-lg text-[#DDA15E] font-semibold">{{ $guide->nama }}</h2>
+                        <p>{{ $guide->jenis_kelamin }} | {{ \Carbon\Carbon::parse($guide->tanggal_lahir)->age }} Tahun | {{ $guide->bahasa }}</p>
+                        <p>{{ $guide->kota_wisata }}</p>
+                        <p>{{ $guide->wisatas->count() }} Wisata</p>
+                        <p class="font-bold">Rp. {{ number_format($guide->harga, 0, ',', '.') }}</p>
                     </div>
                     <button class="bg-orange-500 text-white px-4 py-2 rounded-lg">Lihat Detail</button>
                 </div>
