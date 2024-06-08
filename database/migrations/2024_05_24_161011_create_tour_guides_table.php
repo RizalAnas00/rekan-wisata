@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('tanggal_lahir');
             $table->string('kota_wisata');
             $table->string('bahasa');
+            $table->decimal('harga');
             $table->string('nama_tempat_wisata');
             $table->string('no_hp');
             $table->string('email')->unique();
@@ -25,6 +26,8 @@ return new class extends Migration
             $table->string('jenis_kelamin');
             $table->timestamps();
         });
+
+
     }
 
     /**
@@ -32,6 +35,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+
         Schema::dropIfExists('tour_guides');
     }
 };

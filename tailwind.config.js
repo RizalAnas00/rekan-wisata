@@ -12,6 +12,7 @@ export default {
     "./resources/views/jadwal.blade.php",
     "./resources/views/berita.blade.php",
     "./resources/views/profile.blade.php",
+    "./resources/views/TourGuide.blade.php",
     "./resources/**/*.js",
     "./resources/**/*.vue",
   ],

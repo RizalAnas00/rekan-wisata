@@ -7,6 +7,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TourGuideController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingPageController::class, 'index'])->name('landingpage');
@@ -63,9 +64,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile/edit-phone', [ProfileController::class, 'editPhone'])->name('profile.editPhone');
     Route::post('/profile/update-phone', [ProfileController::class, 'updatePhoneNumber'])->name('profile.updatePhoneNumber');
 
+//To
+    Route::get('/wisata/{id}/tour-guides', [WisataController::class, 'showTourGuides'])->name('wisata.tourGuides');
+    Route::get('/tourguide/{id}', [TourGuideController::class, 'show'])->name('tourguide.show');
+
     Route::get('/home', function () {
         return 'Home Page';
     })->name('home');
+
+
+//Tour-Guide
+Route::get('/tourguides', [TourGuideController::class, 'index'])->name('tour-guides.index');
 });
 
 

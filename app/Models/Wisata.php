@@ -18,6 +18,11 @@ class Wisata extends Model
         'image_path'
     ];
 
+    public function tourGuides()
+    {
+        return $this->belongsToMany(TourGuide::class, 'tour_guide_wisata');
+    }
+
     //relasi ke model review
     public function reviews()
     {
