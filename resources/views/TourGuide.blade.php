@@ -20,7 +20,7 @@
                         <p>{{ $guide->wisatas->count() }} Wisata</p>
                         <p class="font-bold">Rp. {{ number_format($guide->harga, 0, ',', '.') }}</p>
                     </div>
-                    <button class="bg-orange-500 text-white px-4 py-2 rounded-lg">Lihat Detail</button>
+                    <a href="{{ route('tourguide.show', $guide->id) }}" class="bg-orange-500 text-white px-4 py-2 rounded-lg">Lihat Detail</a>
                 </div>
             @endforeach
         </div>

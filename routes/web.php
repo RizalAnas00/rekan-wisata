@@ -66,6 +66,7 @@ Route::middleware('auth')->group(function () {
 
 //To
     Route::get('/wisata/{id}/tour-guides', [WisataController::class, 'showTourGuides'])->name('wisata.tourGuides');
+    Route::get('/tourguide/{id}', [TourGuideController::class, 'show'])->name('tourguide.show');
 
     Route::get('/home', function () {
         return 'Home Page';
