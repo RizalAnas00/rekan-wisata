@@ -23,6 +23,11 @@ class Wisata extends Model
         return $this->belongsToMany(TourGuide::class, 'tour_guide_wisata');
     }
 
+    public function sewas()
+    {
+        return $this->hasMany(Sewa::class);
+    }
+
     //relasi ke model review
     public function reviews()
     {

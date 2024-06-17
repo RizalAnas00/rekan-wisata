@@ -16,7 +16,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('tour_guide_id')->constrained()->onDelete('cascade');
             $table->foreignId('wisata_id')->constrained()->onDelete('cascade');
-            $table->foreignId('jadwal_id')->constrained()->onDelete('cascade');
+            $table->date('tanggal_keberangkatan');
+            $table->string('pembayaran');
             $table->timestamps();
         });
     }
