@@ -42,4 +42,11 @@ class SewaController extends Controller
 
         return view('sewa', compact('sewa','tourGuide','wisatas'));
     }
+
+    public function shownih($id)
+    {
+        $sewa = Sewa::with(['tourGuide', 'wisata'])->findOrFail($id);
+
+        return view('sewanihya', compact('sewa'));
+    }
 }

@@ -78,6 +78,8 @@ Route::middleware('auth')->group(function () {
 Route::get('/tourguides', [TourGuideController::class, 'index'])->name('tour-guides.index');
 Route::post('/sewa', [SewaController::class, 'store'])->name('sewa.store');
 Route::get('/sewa/{sewa}', [SewaController::class, 'show'])->name('sewa.show');
+Route::get('/sewa/{id}', [SewaController::class, 'shownih'])->name('sewanih')->middleware('auth');
+
 });
 
 

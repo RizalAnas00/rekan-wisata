@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\Models\Wisata;
 use App\Models\Berita;
 use App\Models\Review;
+use App\Models\Sewa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -95,7 +96,10 @@ class WisataController extends Controller
     }
 
     public function pesanTg (){
-        return view('pesanTg');
+        $user = Auth::user();
+        $sewas = Sewa::where('user_id', $user->id)->with(['tourGuide', 'wisata'])->get();
+
+        return view('pesanTg', compact('sewas'));
     }
 
     public function profile (){
