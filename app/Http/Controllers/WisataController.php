@@ -48,12 +48,15 @@ class WisataController extends Controller
         $wisata = Wisata::find($id);
         $reviews = Review::where('wisata_id', $id)->get();
 
+        $wisatatg = Wisata::with('tourGuides')->findOrFail($id);
+
+
         // Hitung rata-rata rating
         $totalRating = $reviews->sum('rating');
         $jumlahReview = $reviews->count();
         $ratingTerkini = $jumlahReview > 0 ? $totalRating / $jumlahReview : 0;
 
-        return view('detailWisata', compact('wisata', 'reviews', 'ratingTerkini'));
+        return view('detailWisata', compact('wisata', 'reviews', 'ratingTerkini','wisatatg'));
     }
 
     // Search Wisata di dashboard dan rekomendasi
@@ -97,6 +100,16 @@ class WisataController extends Controller
 
     public function profile (){
         return view('profile');
+    }
+
+
+
+    public function showTourGuides($id)
+    {
+        $wisata = Wisata::with('tourGuides')->findOrFail($id);
+        $guides = $wisata->tourGuides;
+
+        return view('TourGuide', compact('guides'));
     }
 }
 
