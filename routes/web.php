@@ -7,6 +7,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SewaController;
 use App\Http\Controllers\TourGuideController;
 use Illuminate\Support\Facades\Route;
 
@@ -75,6 +76,10 @@ Route::middleware('auth')->group(function () {
 
 //Tour-Guide
 Route::get('/tourguides', [TourGuideController::class, 'index'])->name('tour-guides.index');
+Route::post('/sewa', [SewaController::class, 'store'])->name('sewa.store');
+Route::get('/sewa/{sewa}', [SewaController::class, 'show'])->name('sewa.show');
+Route::get('/sewa/{id}', [SewaController::class, 'shownih'])->name('sewanih')->middleware('auth');
+
 });
 
 

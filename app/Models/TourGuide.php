@@ -26,5 +26,9 @@ class TourGuide extends Model
     {
         return $this->belongsToMany(Wisata::class, 'tour_guide_wisata');
     }
+    public function sewas()
+    {
+        return $this->hasMany(Sewa::class);
+    }
 
 }
