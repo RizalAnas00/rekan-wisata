@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\WisataController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\jadwal;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\ProfileController;
@@ -76,7 +77,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/sewa/{sewa}', [SewaController::class, 'show'])->name('sewa.show');
     Route::get('/sewa/{id}', [SewaController::class, 'shownih'])->name('sewanih')->middleware('auth');
 
+
+
+
+
+Route::get('/baru', [jadwal::class, 'index']);
+Route::post('/submit-dates', [jadwal::class, 'submitDates'])->name('submit.dates');
+
 });
+
+
 
 
 
