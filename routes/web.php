@@ -17,8 +17,6 @@ Route::get('/', [LandingPageController::class, 'index'])->name('landingpage');
 Route::get('/login', [AuthenticationController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthenticationController::class, 'login']);
 
-
-
 //Register
 Route::get('/register/step1', [AuthenticationController::class, 'showRegisterFormStep1'])->name('register.step1');
 Route::post('/register/step1', [AuthenticationController::class, 'processRegisterFormStep1']);
@@ -54,7 +52,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/reviewUser', [ReviewController::class, 'create'])->name('create.review');
     Route::post('/reviewUser', [ReviewController::class, 'store'])->name('store.review');
 
-
 //berita
     Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('detail.berita');
 
@@ -73,12 +70,11 @@ Route::middleware('auth')->group(function () {
         return 'Home Page';
     })->name('home');
 
-
 //Tour-Guide
-Route::get('/tourguides', [TourGuideController::class, 'index'])->name('tour-guides.index');
-Route::post('/sewa', [SewaController::class, 'store'])->name('sewa.store');
-Route::get('/sewa/{sewa}', [SewaController::class, 'show'])->name('sewa.show');
-Route::get('/sewa/{id}', [SewaController::class, 'shownih'])->name('sewanih')->middleware('auth');
+    Route::get('/tourguides', [TourGuideController::class, 'index'])->name('tour-guides.index');
+    Route::post('/sewa', [SewaController::class, 'store'])->name('sewa.store');
+    Route::get('/sewa/{sewa}', [SewaController::class, 'show'])->name('sewa.show');
+    Route::get('/sewa/{id}', [SewaController::class, 'shownih'])->name('sewanih')->middleware('auth');
 
 });
 

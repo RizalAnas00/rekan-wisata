@@ -32,7 +32,7 @@
                     <p class="text-white ">{{ $jadwal->tanggal_berangkat }}</p>
                     <p class="text-white mb-10">{{ $jadwal->deskripsi }}</p>
                     <a href="{{ route('jadwal.edit',$jadwal->id) }}">
-                        <button class="absolute bottom-4 right-4 bg-yellow-500 text-white font-semibold py-2 px-4 rounded-lg">Edit Jadwal</button>
+                        <button class="absolute bottom-4 right-4 bg-[#BC6C25] text-white font-semibold py-2 px-4 rounded-lg">Edit Jadwal</button>
                     </a>
 
             </div>

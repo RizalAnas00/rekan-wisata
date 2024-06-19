@@ -119,15 +119,29 @@
 
         <main class="flex-1 container mx-auto px-4 py-8">
 
-            <div class="mb-6">
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const wilayahSelect = document.getElementById('wilayah');
+        
+                    const form = document.getElementById('filterForm');
+        
+                    wilayahSelect.addEventListener('change', function() {
+                        form.submit();
+                    });
+                });
+            </script>
+            <form id="filterForm" method="GET" action="{{ route('search.wisata') }}" class="mb-6">
+            <div>
                 <label for="wilayah" class="block mb-2 text-sm font-medium text-gray-700">Wilayah Wisata</label>
-                <input
-                    type="text"
-                    id="wilayah"
-                    class="block w-full p-2 border border-gray-300 rounded-md"
-                    placeholder="Semarang"
-                />
+                <select id="wilayah" name="wilayah" class="block w-full p-2 border border-gray-300 rounded-md">
+                    <option value="all">Semua Wilayah</option>
+                    @foreach($wilayahs as $wilayah)
+                        <option value="{{ $wilayah->kota }}" {{ request('wilayah') == $wilayah->kota ? 'selected' : '' }}>{{ $wilayah->kota }}</option>
+                    @endforeach
+                </select>
             </div>
+            </form>
 
             <section class="mb-6">
                 <a href="{{ route('rekomendasi.Wisata') }}" class="text-xl font-semibold mb-2 hover:underline">Rekomendasi Pariwisata > </a>

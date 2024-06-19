@@ -13,6 +13,7 @@ export default {
     "./resources/views/berita.blade.php",
     "./resources/views/profile.blade.php",
     "./resources/views/TourGuide.blade.php",
+    "./resources/**/*.blade.php",
     "./resources/**/*.js",
     "./resources/**/*.vue",
   ],
