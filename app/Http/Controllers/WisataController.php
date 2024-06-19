@@ -15,11 +15,12 @@ class WisataController extends Controller
 {
     public function index()
     {
+        $wilayahs = Wisata::select('kota')->distinct()->get();
         $wisatas = Wisata::with('reviews')->get();
         $beritas = Berita::all();
         $user = Auth::user();
 
-        return view('dashboard', compact('wisatas', 'beritas', 'user'));
+        return view('dashboard', compact('wilayahs','wisatas', 'beritas', 'user'));
     }
 
 
