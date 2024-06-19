@@ -11,7 +11,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SewaController;
 use App\Http\Controllers\TourGuideController;
 use App\Http\Controllers\UasController;
+use App\Http\Controllers\PrimeNumberController;
 use Illuminate\Support\Facades\Route;
+
 
 Route::get('/', [LandingPageController::class, 'index'])->name('landingpage');
 
@@ -94,3 +96,5 @@ Route::post('/submit-dates', [jadwal::class, 'submitDates'])->name('submit.dates
 
 
 
+    Route::get('/angkaprima', [PrimeNumberController::class, 'showForm']);
+    Route::post('/angkaprima', [PrimeNumberController::class, 'calculatePrimes']);
