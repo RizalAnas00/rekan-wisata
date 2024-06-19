@@ -9,9 +9,13 @@ use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SewaController;
 use App\Http\Controllers\TourGuideController;
+use App\Http\Controllers\UasController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingPageController::class, 'index'])->name('landingpage');
+
+Route::get('/uas', [UasController::class, 'show'])->name('uas');
+Route::post('/check-dates', [UasController::class, 'checkDates'])->name('check.dates');
 
 //Login
 Route::get('/login', [AuthenticationController::class, 'showLoginForm'])->name('login');
