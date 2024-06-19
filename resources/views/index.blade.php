@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Date Range Input</title>
+    <title>Leap Year Input</title>
 </head>
 <body>
-    <h1>Input Date Range</h1>
+    <h1>Input Year Range</h1>
     <form action="{{ route('submit.dates') }}" method="POST">
         @csrf
-        <label for="start_date">Start Date:</label>
-        <input type="date" id="start_date" name="start_date" required>
+        <label for="start_year">Start Year:</label>
+        <input type="number" id="start_year" name="start_year" required>
         <br>
-        <label for="end_date">End Date:</label>
-        <input type="date" id="end_date" name="end_date" required>
+        <label for="end_year">End Year:</label>
+        <input type="number" id="end_year" name="end_year" required>
         <br>
         <button type="submit">Submit</button>
     </form>
 
-    @if(isset($weekendDates))
-        <h2>Weekend Dates:</h2>
+    @if(isset($leapYears))
+        <h2>Leap Years:</h2>
         <ul>
-            @foreach($weekendDates as $date)
-                <li>{{ $date['day'] }}, {{ $date['date'] }}</li>
+            @foreach($leapYears as $year)
+                <li>{{ $year }}</li>
             @endforeach
         </ul>
     @endif

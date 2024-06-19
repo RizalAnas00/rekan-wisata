@@ -18,24 +18,20 @@ class jadwal extends Controller
     public function submitDates(Request $request)
     {
         $request->validate([
-            'start_date' => 'required|date',
-            'end_date' => 'required|date|after_or_equal:start_date',
+            'start_year' => 'required|integer',
+            'end_year' => 'required|integer|gte:start_year',
         ]);
 
-        $startDate = Carbon::parse($request->start_date);
-        $endDate = Carbon::parse($request->end_date);
-        $period = CarbonPeriod::create($startDate, $endDate);
+        $startYear = $request->start_year;
+        $endYear = $request->end_year;
 
-        $weekendDates = [];
-        foreach ($period as $date) {
-            if ($date->isSaturday() || $date->isSunday()) {
-                $weekendDates[] = [
-                    'day' => $date->format('l'),
-                    'date' => $date->format('j F Y'),  // Ubah format tanggal di sini
-                ];
+        $leapYears = [];
+        for ($year = $startYear; $year <= $endYear; $year++) {
+            if (($year % 4 == 0 && $year % 100 != 0) || ($year % 400 == 0)) {
+                $leapYears[] = $year;
             }
         }
 
-        return view('index', compact('weekendDates'));
+        return view('index', compact('leapYears'));
     }
 }
