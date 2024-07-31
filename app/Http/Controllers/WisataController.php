@@ -16,6 +16,8 @@ class WisataController extends Controller
     public function index()
     {
         //dashboard
+        // Mengambil data wisata dan berita
+        // Mengambil data wisata dan berita
         $wilayahs = Wisata::select('kota')->distinct()->get();
         $wisatas = Wisata::with('reviews')->get();
         $beritas = Berita::all();
