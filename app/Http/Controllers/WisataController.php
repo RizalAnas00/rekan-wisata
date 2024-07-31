@@ -15,6 +15,7 @@ class WisataController extends Controller
 {
     public function index()
     {
+        //dashboard
         $wilayahs = Wisata::select('kota')->distinct()->get();
         $wisatas = Wisata::with('reviews')->get();
         $beritas = Berita::all();
